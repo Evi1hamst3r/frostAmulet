@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-import com.frost_amulet.game.Screens.MenuScreen;
+import com.frost_amulet.game.screens.MenuScreen;
 import com.sun.glass.ui.Menu;
 
 public class FrostAmulet extends Game {

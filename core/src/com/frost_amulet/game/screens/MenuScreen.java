@@ -1,4 +1,4 @@
-package com.frost_amulet.game.Screens;
+package com.frost_amulet.game.screens;
 
 import com.badlogic.gdx.Screen;
 import com.frost_amulet.game.FrostAmulet;
