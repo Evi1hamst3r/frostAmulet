@@ -30,7 +30,7 @@ public class FrostAmulet extends ApplicationAdapter {
         camera.setToOrtho(false, w, h); // y increases upwards, viewport = window
         batch = new SpriteBatch(); // batch drawing
 
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.absolute(localPath + "fonts/AnglosaxOblique.ttf"));
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/AnglosaxOblique.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 50;
         parameter.color = Color.BLACK;
