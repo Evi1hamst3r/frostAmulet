@@ -2,6 +2,7 @@ package com.frost_amulet.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.ai.GdxFileSystem;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -19,6 +20,9 @@ public class FrostAmulet extends ApplicationAdapter {
 
         Handler.Start();
 
+        String localPath = Gdx.files.getLocalStoragePath() + "/core/assets/";
+        System.out.println(localPath);
+
         w = Handler.getGameWidth(); // width of screen
         h = Handler.getGameHeight(); // height of screen
 
@@ -26,7 +30,7 @@ public class FrostAmulet extends ApplicationAdapter {
         camera.setToOrtho(false, w, h); // y increases upwards, viewport = window
         batch = new SpriteBatch(); // batch drawing
 
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("core/assets/fonts/AnglosaxOblique.ttf"));
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.absolute(localPath + "fonts/AnglosaxOblique.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 50;
         parameter.color = Color.BLACK;
