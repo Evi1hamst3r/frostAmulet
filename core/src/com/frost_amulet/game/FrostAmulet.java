@@ -9,15 +9,20 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.frost_amulet.game.Screens.MenuScreen;
+import com.sun.glass.ui.Menu;
 
 public class FrostAmulet extends Game {
     private OrthographicCamera camera;
     private SpriteBatch batch;
     private BitmapFont fontAnglosax50;
     private float w,h;
+    MenuScreen menuScreen;
 
     @Override
     public void create () {
+
+        this.setScreen(menuScreen = new MenuScreen(this));
 
         Handler.start();
 
