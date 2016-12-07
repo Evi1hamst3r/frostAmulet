@@ -16,7 +16,7 @@ public class Handler {
     private static BitmapFont font;
     private static FrostAmulet game;
 
-    public static void Start(){
+    public static void start(){
         width = Gdx.graphics.getWidth();
         height = Gdx.graphics.getHeight();
 
