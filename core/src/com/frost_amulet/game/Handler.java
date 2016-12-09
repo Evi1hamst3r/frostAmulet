@@ -16,6 +16,11 @@ public class Handler {
     private static BitmapFont font;
     private static FrostAmulet game;
 
+    private static float menuButtonWidth = 64;
+    private static float globalTextureScale = 4;
+
+
+
     public static void start(){
         width = Gdx.graphics.getWidth();
         height = Gdx.graphics.getHeight();
@@ -57,6 +62,20 @@ public class Handler {
     }
     public static void setGame(FrostAmulet game){
         Handler.game = game;
+    }
+
+    public static float getMenuButtonWidth(){
+        return menuButtonWidth;
+    }
+    public static void setMenuButtonWidth(float menuButtonWidth){
+        Handler.menuButtonWidth = menuButtonWidth;
+    }
+
+    public static float getGlobalTextureScale(){
+        return globalTextureScale;
+    }
+    public static void setGlobalTextureScale(float globalTextureScale){
+        Handler.globalTextureScale = globalTextureScale;
     }
 
 }
