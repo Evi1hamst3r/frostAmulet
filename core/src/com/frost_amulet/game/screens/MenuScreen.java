@@ -2,20 +2,15 @@ package com.frost_amulet.game.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.frost_amulet.game.FrostAmulet;
@@ -33,7 +28,15 @@ public class MenuScreen implements Screen {
     private Texture texNewGame;
     private TextureRegion texRegNewGame;
     private TextureRegionDrawable texRegDrawNewGame;
+
+    private Texture texNewGameHover;
+    private TextureRegion texRegNewGameHover;
+    private TextureRegionDrawable texRegDrawNewGameHover;
     private ImageButton buttonNewGame;
+
+    private Texture texLoadGameHover;
+    private TextureRegion texRegLoadGameHover;
+    private TextureRegionDrawable texRegDrawLoadGameHover;
 
     private Texture texLoadGame;
     private TextureRegion texRegLoadGame;
@@ -62,8 +65,8 @@ public class MenuScreen implements Screen {
         stage = new Stage(new ScreenViewport()); //Set up a stage for the ui
 
 
-        loadNewGameButton();
-        loadLoadGameButton();
+        initNewGameButton();
+        initLoadGameButton();
 
         Gdx.input.setInputProcessor(stage); //Start taking input from the ui
 
@@ -87,11 +90,16 @@ public class MenuScreen implements Screen {
 
 
 
-    private void loadNewGameButton(){
-        texNewGame = new Texture(Gdx.files.internal("menuButtons/buttonNewGameHover.png"));
+    private void initNewGameButton(){
+        texNewGame = new Texture(Gdx.files.internal("menuButtons/buttonNewGame.png"));
         texRegNewGame = new TextureRegion(texNewGame);
         texRegDrawNewGame = new TextureRegionDrawable(texRegNewGame);
-        buttonNewGame = new ImageButton(texRegDrawNewGame); //Set the button upz
+
+        texNewGameHover = new Texture(Gdx.files.internal("menuButtons/buttonNewGameHover.png"));
+        texRegNewGameHover = new TextureRegion(texNewGameHover);
+        texRegDrawNewGameHover = new TextureRegionDrawable(texRegNewGameHover);
+
+        buttonNewGame = new ImageButton(texRegDrawNewGame, null, texRegDrawNewGameHover); //Set the button upz
         buttonNewGame.setBounds(w/2 - menuButtonWidth*Handler.getGlobalTextureScale()/2, 2*h/4 - menuButtonWidth*Handler.getGlobalTextureScale()/4, menuButtonWidth*Handler.getGlobalTextureScale(),menuButtonWidth*Handler.getGlobalTextureScale()/2);
         buttonNewGame.getImageCell().expand().fill(); //Resize the image in the screen
 
@@ -102,19 +110,26 @@ public class MenuScreen implements Screen {
             public boolean handle(Event event) {
 
                 if(buttonNewGame.isOver()) {
-
-                } else {System.out.println("Shit");}
+                    buttonNewGame.setChecked(true);
+                }else {
+                    buttonNewGame.setChecked(false);
+                }
 
                 return false;}
         });
 
     }
 
-    private void loadLoadGameButton(){
-        texLoadGame = new Texture(Gdx.files.internal("menuButtons/buttonResumeGameHover.png"));
+    private void initLoadGameButton(){
+        texLoadGame = new Texture(Gdx.files.internal("menuButtons/buttonResumeGame.png"));
         texRegLoadGame = new TextureRegion(texLoadGame);
         texRegDrawLoadGame = new TextureRegionDrawable(texRegLoadGame);
-        buttonLoadGame = new ImageButton(texRegDrawLoadGame); //Set the button upz
+
+        texLoadGameHover = new Texture(Gdx.files.internal("menuButtons/buttonResumeGameHover.png"));
+        texRegLoadGameHover = new TextureRegion(texLoadGameHover);
+        texRegDrawLoadGameHover = new TextureRegionDrawable(texRegLoadGameHover);
+
+        buttonLoadGame = new ImageButton(texRegDrawLoadGame, null, texRegDrawLoadGameHover); //Set the button upz
         buttonLoadGame.setBounds(w/2 - menuButtonWidth*Handler.getGlobalTextureScale()/2, 3*h/4 - menuButtonWidth*Handler.getGlobalTextureScale()/4, menuButtonWidth*Handler.getGlobalTextureScale(),menuButtonWidth*Handler.getGlobalTextureScale()/2);
         buttonLoadGame.getImageCell().expand().fill(); //Resize the image in the screen
 
@@ -124,11 +139,11 @@ public class MenuScreen implements Screen {
             @Override
             public boolean handle(Event event) {
 
-                if(buttonLoadGame.isOver()){
-                    System.out.println("Die");
+                if(buttonLoadGame.isOver()) {
+                    buttonLoadGame.setChecked(true);
+                }else {
+                    buttonLoadGame.setChecked(false);
                 }
-
-                else {System.out.println("Fark");}
 
                 return false;}
         });
