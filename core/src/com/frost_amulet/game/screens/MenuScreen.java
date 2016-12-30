@@ -44,7 +44,6 @@ public class MenuScreen implements Screen {
     private ImageButton buttonLoadGame;
 
 
-  //  private BitmapFont fontAnglosax50;
     private float w,h;
 
     private float menuButtonWidth;
@@ -158,19 +157,9 @@ public class MenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(1, 1, 0, 1); // Clear color is yellow
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // Clear buffer with Clear color
-
-        ///batch.setProjectionMatrix(camera.combined); // Set Projection Matrix
-
-       // batch.begin(); // begin drawing
-
-
-
-       // batch.end(); // end drawing
-
-        stage.act(Gdx.graphics.getDeltaTime()); //Perform ui logic
-        stage.draw(); //Draw the ui
+       //batch.setProjectionMatrix(camera.combined); // Set Projection Matrix
+            stage.act(Gdx.graphics.getDeltaTime()); //Perform ui logic
+            stage.draw(); //Draw the ui
     }
 
     @Override

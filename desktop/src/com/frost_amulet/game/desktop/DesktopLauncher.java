@@ -17,6 +17,8 @@ public class DesktopLauncher {
         config.height= GAME_HEIGHT;
         config.resizable = true;
         config.title = "Frost Amulet";
+        Handler.setGameHeight(GAME_HEIGHT);
+        Handler.setGameWidth(GAME_WIDTH);
 
 		new LwjglApplication(new FrostAmulet(), config);
 

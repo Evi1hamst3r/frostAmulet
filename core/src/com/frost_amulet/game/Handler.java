@@ -12,13 +12,13 @@ public class Handler {
 
     private static int height;
     private static int width;
+
+    private static int menuButtonWidth = 64;
+    private static float globalTextureScale = 4.0f;
+
     private static SpriteBatch batch;
     private static BitmapFont font;
     private static FrostAmulet game;
-
-    private static float menuButtonWidth = 64;
-    private static float globalTextureScale = 4;
-
 
 
     public static void start(){
@@ -64,18 +64,14 @@ public class Handler {
         Handler.game = game;
     }
 
-    public static float getMenuButtonWidth(){
+    public static int getMenuButtonWidth(){
         return menuButtonWidth;
     }
-    public static void setMenuButtonWidth(float menuButtonWidth){
+    public static void setMenuButtonWidth(int menuButtonWidth){
         Handler.menuButtonWidth = menuButtonWidth;
     }
 
-    public static float getGlobalTextureScale(){
-        return globalTextureScale;
-    }
-    public static void setGlobalTextureScale(float globalTextureScale){
-        Handler.globalTextureScale = globalTextureScale;
-    }
+    public static float getGlobalTextureScale(){return globalTextureScale;}
+    public static void setGlobalTextureScale(float globalTextureScale){ Handler.globalTextureScale = globalTextureScale; }
 
 }
