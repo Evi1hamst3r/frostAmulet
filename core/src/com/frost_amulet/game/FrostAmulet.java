@@ -3,14 +3,12 @@ package com.frost_amulet.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.ai.GdxFileSystem;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-import com.frost_amulet.game.Screens.MenuScreen;
-import com.sun.glass.ui.Menu;
+import com.frost_amulet.game.screens.MenuScreen;
 
 public class FrostAmulet extends Game {
     private OrthographicCamera camera;
@@ -21,8 +19,6 @@ public class FrostAmulet extends Game {
 
     @Override
     public void create () {
-
-        this.setScreen(menuScreen = new MenuScreen(this));
 
         Handler.start();
 
@@ -44,16 +40,13 @@ public class FrostAmulet extends Game {
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
 
         Handler.setFont(fontAnglosax50);
+
+        this.setScreen(menuScreen = new MenuScreen(this));
     }
 
     @Override
-    public void render () {
-        Gdx.gl.glClearColor(1, 1, 0, 1); // Clear color is yellow
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); // Clear buffer with Clear color
-        batch.setProjectionMatrix(camera.combined); // Set Projection Matrix
-        batch.begin(); // begin drawing
-        fontAnglosax50.draw(batch, "Hello World", w/2-180, h/2+50); // Draw the Hello World text
-        batch.end(); // end drawing
+    public void render() {
+        super.render();
     }
 
     @Override
